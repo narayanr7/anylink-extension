@@ -26,11 +26,13 @@ function storeProfile(profile, descriptor) {
 function activateProfile(id) {
     console.log("setting active profile with id ", id);
     active_profile = id;
-    if (active == false) {
-	setProxy();
-	startCookieAdder();
-	active = true;
+    if (active == true) {
+	unsetProxy();
+	stopCookieAdder();
     }
+    setProxy();
+    startCookieAdder();
+    active = true;
 }
 
 /**
