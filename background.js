@@ -90,14 +90,12 @@ function setProxy() {
 	    }
 	}
     };
-    chrome.proxy.settings.set({value: config, scope: 'regular'},
-			      function() {});      
+    chrome.proxy.settings.set({value: config, scope: 'regular'}, function() {});
 }
 
 function unsetProxy() {
     var config = {
 	mode: 'direct'
     };
-    chrome.proxy.settings.set({value: config, scope: 'regular'},
-			      function() {});
+    chrome.proxy.settings.set({value: config, scope: 'regular'}, function() {});
 }

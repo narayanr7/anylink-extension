@@ -26,7 +26,7 @@
       </div>
 
       <div style="-webkit-user-select: none;">
-	<div ng-repeat="profile in profiles" class="goog-menuitem" ng-click="setProfile(profile.id)">
+	<div ng-repeat="profile in profiles" class="goog-menuitem" ng-click="activateProfile(profile.id)">
 	  <div class="goog-menuitem-content">
 	    <angular-message desc="Profile name">
 	      {{profile.name}}
