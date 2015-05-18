@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="aesApp">
+  <head>
+    <link rel="stylesheet" type="text/css" href="angular-csp.css" />
+    <link rel="stylesheet" type="text/css" href="popup_menu.css" />
+    <script src="js/angular.min.js"></script>
+    <script src="popup_menu.js"></script>
+  </head>
+  <body>
+
+    <div ng-controller="AESController as controller">
+      <div class="no-device-header" ng-hide="profiles.length > 0">
+	<div>
+	  <angular-message desc="Label that there is no profile available">
+	    No profiles available
+	  </angular-message>
+	</div>
+      </div>
+
+      <div class="device-header" ng-show="profiles.length > 0">
+	<div>
+	  <angular-message desc="Label for available profiles.">
+            Pick a network profile...
+	  </angular-message>
+	</div>
+      </div>
+
+      <div style="-webkit-user-select: none;">
+	<div ng-repeat="profile in profiles" class="goog-menuitem" ng-click="setProfile(profile.id)">
+	  <div class="goog-menuitem-content">
+	    <angular-message desc="Profile name">
+	      {{profile.name}}
+	    </angular-message>
+	  </div>
+	</div>
+      </div>
+
+      <div class="goog-menuseparator" role="separator"></div>
+
+      <div class="goog-menuitem-secondary" role="menuitem" ng-click="updateProfiles()">
+	<div class="goog-menuitem-content">
+	  <div class="boost-menuitem-header">
+            <angular-message desc="update profiles">
+              Update network profiles
+            </angular-message>
+	  </div>
+	</div>
+      </div>
+
+      <div class="goog-menuitem-secondary" role="menuitem" ng-click="showOptions()">
+	<div class="goog-menuitem-content">
+	  <div class="boost-menuitem-header">
+            <angular-message desc="create a new profile">
+	      Create your own profile
+            </angular-message>
+	  </div>
+	</div>
+      </div>
+
+
+    </div>
+  </body>
+</html>

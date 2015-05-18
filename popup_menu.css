@@ -1,0 +1,639 @@
+html {
+  width: 340px;
+  margin: 0;
+  // padding: 16px;
+  box-shadow:0 2px 3px 0 rgba(0,0,0,0.26);
+}
+
+body {
+  font-family: 'Roboto', 'Noto Sans', 'Segoe UI', 'Lucida Grande', 'Open Sans', arial,
+      sans-serif;
+  font-size: 14px;
+  color: #1f1f1f;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  margin: 0;
+  height: 1px;
+  border: 0;
+  color: #c1c1c3;
+  background-color: #c1c1c3;
+}
+
+/* ALL: Title of a section */
+.title {
+  font-weight: bold;
+  padding-top: 16px;
+  padding-left: 10px;
+}
+
+/* header when no device was found. */
+.no-device-header {
+  font-weight: bold;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Spacer css for where to put the no devices found message. */
+.no-device-header div {
+  padding-top: 20px;
+}
+
+/* header when no device was found. */
+.device-header {
+  padding-left: 11px;
+  font-size:14px;
+  color: #757575;
+  width: 100%;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.active-boost-header {
+  height: 56px;
+  width: 100%;
+}
+
+.boost-favicon {
+  padding-left: 11px;
+  height: 20px;
+  width: 10%;
+  float: left;
+}
+
+.boost-preference-header {
+  width: 70%;
+  text-align: left;
+  float: left;
+  padding-right: 1px;
+  padding-bottom: 1px;
+}
+
+.boost-domain-header {
+  width: 70%;
+  text-align: left;
+  float: left;
+  padding-right: 1px;
+  padding-bottom: 1px;
+}
+
+.boost-menuitem-always-header {
+  text-align: left;
+  float: left;
+}
+
+.boost-menuitem-domain-header {
+  text-align: right;
+  padding-right: 11px;
+  font-size: 12px;
+  color: #757575;
+}
+
+.boost-checkmark {
+  height:20px;
+  width: 10%;
+  float: left;
+}
+
+.boost-info-header {
+  width:70%;
+  font-size: 12px;
+  color: #757575;
+  padding-left: 45px;
+}
+
+.boost-close-header {
+  width: 324px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #4DB6AC;
+  text-align: right;
+}
+
+.boost-close-header:hover, .checkable-option:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* learn more link such as a link below message about no devices found. */
+.learn-more-link {
+  font-weight: normal;
+  display: block;
+  color: #1155cc;
+  cursor: pointer;
+}
+
+.learn-more-link:hover {
+  text-decoration: underline;
+}
+
+/* header when there is at least one device. */
+.device-selection-header {
+  font-weight: bold;
+  line-height: 32px;
+  padding-left: 11px; /* 1px from extension popup */
+  padding-right: 11px;
+  vertical-align: middle;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* SELECT DEVICE: Container for selectable devices */
+.device-selector {
+}
+
+/* SELECT DEVICE: Selectable device in the container */
+.goog-menuitem {
+  cursor: pointer;
+  padding-left: 11px; /* 1px from extension popup */
+  line-height: 32px;
+  vertical-align: middle;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.goog-menuitem-secondary {
+  cursor: pointer;
+  padding-left: 11px; /* 1px from extension popup */
+  line-height: 32px;
+  vertical-align: middle;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 12px;
+}
+
+.goog-menuitem .close {
+  position: absolute;
+  right: 11px;
+  top: 8px;
+  display: none;
+  background-image: -webkit-image-set(
+    url('icon-off.png') 1x,
+    url('icon-off.png') 2x);
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+}
+
+.goog-menuitem:hover .close, .goog-menuitem:focus .close {
+  display: inline-block;
+}
+
+.goog-menuitem .close:hover, .goog-menuitem .close:focus  {
+  display: inline-block;
+  background-image: -webkit-image-set(
+    url('icon-off.png') 1x,
+    url('icon-off.png') 2x);
+}
+
+/* SELECT DEVICE: Hover state for the selectable device */
+.goog-menuitem:hover, .checkable-option:hover {
+  background-color: #bbceec;
+  border: 0;
+}
+
+.goog-menuitem-secondary:hover .close, .goog-menuitem:focus .close {
+  display: inline-block;
+}
+
+.goog-menuitem-secondary .close:hover, .goog-menuitem .close:focus {
+  display: inline-block;
+  background-image: -webkit-image-set(
+    url('icon-off.png') 1x,
+    url('icon-off.png') 2x);
+}
+
+/* SELECT DEVICE: Hover state for the selectable device */
+.goog-menuitem-secondary:hover, .checkable-option:hover {
+  background-color: #bbceec;
+  border: 0;
+}
+
+
+.goog-menuseparator {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-top: 1px solid #ebebeb;
+  color: #1f1f1f;
+}
+
+/* Icon for launching status */
+.launching-icon {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  padding-right: 8px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.launching-spinner {
+  height: 16px;
+  width: 16px;
+  display: block;
+  -webkit-animation: spinner-rotation-animation 2s linear infinite;
+}
+
+@-webkit-keyframes spinner-rotation-animation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.launching-spinner-stroke {
+  stroke: #1759CD;
+  border-color: #1759CD;
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  -webkit-animation: spinner-stroke-animation 3.5s ease infinite;
+}
+
+@-webkit-keyframes spinner-stroke-animation {
+  0% { stroke-dashoffset: 0; }
+  25% { stroke-dashoffset: 187; }
+  50% { stroke-dashoffset: 374; }
+  75% { stroke-dashoffset: 561; }
+  100% { stroke-dashoffset: 748; }
+}
+
+.activity-control {
+  cursor: default;
+}
+
+.activity-control-to-devices {
+  padding-left: 10px;
+  font-weight: bold;
+  line-height: 32px;
+  vertical-align: middle;
+  color: #1456da;
+}
+
+.activity-control-to-devices:hover {
+  text-decoration: underline;
+}
+
+.activity-detail {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.activity-detail:hover {
+  background-color: #bdceec
+}
+
+/* Holds the entire title: icon + title text */
+.activity-title-in-control {
+  font-weight: bold;
+  line-height: 18px;
+  vertical-align: top;
+  padding-top: 6px;
+  padding-left: 11px; /* 1px from extension popup */
+}
+
+/* Holds the description of the activity */
+.activity-title-text {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  width: 285px;
+  height: 18px;
+}
+
+/* Holds the icon of the activity */
+.activity-icon {
+  height: 16px;
+  width: 16px;
+  padding-right: 4px;
+}
+
+/* Holds the activity status info including device name */
+.activity-status {
+  padding-left: 33px;
+  line-height: 18px;
+  vertical-align: top;
+  color: #7d7d7d;
+}
+
+.device-name {
+  height: 18px;
+  width: 240px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.buttons-50pct {
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+  cursor: default;
+}
+
+/* Activity controls: table row */
+.buttons-50pct tr {
+  height: 35px;
+}
+
+.buttons-50pct tr td {
+  margin: 0;
+  padding: 0;
+}
+
+/* Secondary button (gray background) */
+.button {
+  background: -webkit-linear-gradient(top, #fefefe, #dedede);
+  border: 1px solid #c1c1c3;
+  color: #2c2c2c;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: bold;
+  overflow: hidden;
+  height: 35px;
+  width: 35px;
+}
+
+.button img {
+  vertical-align: middle;
+}
+
+/* Disabled secondary button */
+.button[disabled='disabled']{
+  color: #777;
+}
+
+/* Primary button */
+.button-action {
+  border: 1px solid #3771ce;
+  background: -webkit-linear-gradient(top, #599ef4, #4b86f1);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.disabledimg {
+  opacity: 0.4
+}
+
+.video-status {
+  background-color: #b5b5b5;
+  height: 4px;
+  width: 328px;
+}
+
+.buttons-with-video-controls {
+   width: 328px;
+   border-collapse: collapse;
+ }
+
+.buttons-with-video-controls tr {
+  height: 27px;
+}
+
+.buttons-with-video-controls tr td {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid gray;
+  border-bottom: 1px solid gray;
+  font-size: 10pt;
+}
+
+.control-button {
+  width: 36px;
+}
+
+.button-gray {
+  background: -webkit-linear-gradient(top, #fefefe, #e4e0dd);
+}
+
+.buttons-with-video-controls > .button {
+   width: 100px;
+}
+
+/* Issue icon in popup menu */
+.sad-face {
+  display: inline-block;
+  position: relative;
+  top: 8px;
+  left: 4px;
+}
+
+.issue-title {
+  font-weight: bold;
+  line-height: 18px;
+  vertical-align: top;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-top: 8px;
+  padding-left: 8px;
+  display: inline-block;
+}
+
+.issue-message {
+  padding-left: 8px;
+  line-height: 18px;
+  vertical-align: middle;
+  color: #7d7d7d;
+}
+
+.issue-message p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.issue-message ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 20px;
+}
+
+/* Copied from Chromium menu_button.css */
+div.menu-button.drop-down {
+  background: white;
+  background-image: url('data/down-arrow.png');
+  background-repeat: no-repeat;
+  background-position: 2px;
+  border: 1px solid rgb(192, 195, 198);
+  border-radius: 2px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 10px;
+  width: 10px;
+  float: right;
+}
+
+/* Copied from Chromium menu_button.css */
+div.menu-button.drop-down:hover {
+  border-color: rgb(48, 57, 66);
+  background-image: url('data/down-arrow-hover.png');
+}
+
+/* Copied from Chromium menu_button.css */
+div.menu-button.drop-down.showing {
+  background-color: rgb(48, 57, 66);
+  background-image: url('data/down-arrow-showing.png');
+  border-color: rgb(48, 57, 66);
+}
+
+.beta-label {
+  background-image: -webkit-image-set(
+    url('data/chromecast_beta-100.png') 1x,
+    url('data/chromecast_beta-200.png') 2x);
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 19px;
+  width: 34px;
+  margin-right: 2px;
+  vertical-align: middle;
+  padding-top: 2px;
+  margin-left: 10px;
+}
+
+.capture-surface-selection {
+  position: absolute;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 12px;
+  line-height: 28px;
+  color: #2c2c2c;
+  left: 82px;
+  top: 20px;
+  font-weight: normal;
+  background-color: white;
+  border: 1px solid #a5a5a5;
+  z-index: 3;
+  width: 235px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mirror-quality-selection {
+  position: absolute;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  line-height: 25px;
+  color: #2c2c2c;
+  left: 32px;
+  bottom: 35px;
+  font-weight: normal;
+  background-color: white;
+  border: 1px solid #a5a5a5;
+  z-index: 3;
+  width: 225px;
+  height: 75px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+}
+
+.checkable-option {
+  padding-left: 30px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.checkable-option.checked {
+  background-image: url('data/check.png');
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
+.disabled-option {
+  background-color: #ddd !important;
+  cursor: auto;
+}
+
+.transparent-overlay {
+  z-index: 2;
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(255,255,255,.5);
+}
+
+.nonFatalIssue {
+  display: block;
+  padding-top: 6px;
+  padding-left: 12px;
+  padding-bottom: 6px;
+  background-color: #f9ecbf;
+  line-height: 20px;
+}
+
+.nonFatalIssue span {
+  color: black;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.cast-app-image {
+  width: 330px;
+}
+
+.cast-app-notification-header {
+  padding-top: 3px;
+  padding-left: 10px;
+  font-weight: bold;
+  line-height: 32px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.cast-app-notification-text {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+}
+
+.last-menuitem {
+  margin-bottom: 3px;
+}
+
+.stats-collect-prompt-title {
+  padding-left: 10px;
+  font-weight: bold;
+  line-height: 32px;
+  vertical-align: middle;
+}
+
+.stats-collect-prompt-description {
+  display: block;
+  padding-top: 6px;
+  padding-left: 12px;
+  padding-bottom: 6px;
+  line-height: 20px;
+}
+
+.stats-collect-prompt-checkbox {
+  display: block;
+  padding-top: 12px !important;
+  padding-left: 12px;
+  padding-bottom: 20px !important;
+  line-height: 20px;
+}
+
+.stats-collect-prompt-dissmiss-button {
+  width: 100%;
+  height: 30px;
+  padding-top: 0px;
+}
+
+div.initializing {
+  min-height: 120px;
+}
+
+.dimmed > * {
+  opacity: 0.4;
+}

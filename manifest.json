@@ -1,0 +1,18 @@
+{
+	"name": "AES",
+	"version": "0.0.1",
+	"manifest_version": 2,
+
+	"description": "AES (Access Emulation Service) lets you emulate your network experience through a set of different profiles.",
+	"browser_action": { 
+	  "default_title": "AES: Access Emulation Service",
+	  "default_popup": "popup_menu.html"
+	},	  
+	"permissions": [
+	  "<all_urls>", "proxy","webRequest", "webRequestBlocking"
+	],
+	"background": {
+    	  "page": "background.html"
+  	}		  
+
+}
