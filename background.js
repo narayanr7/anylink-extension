@@ -11,29 +11,19 @@ function getRandomID() {
     return Math.random().toString(36).slice(2);
 }
 
-function setProfiles(template_profiles) {
-    for (var i = 0; i < template_profiles.length; i++) {
-	var _p = template_profiles[i];
-	var chip = Math.floor(Math.random()*(Math.pow(2,32)-1));
-	var seed = getRandomID();
-	chip = 2;
-	seed = "malakas";
-	var descriptor = new CookieDescriptor(chip, seed);
-	var _profile = {id:_p.id, name:_p.name, 
-			settings:_p.content, cookie_descriptor:descriptor};
-	profiles[_p.id] = _profile;
-    }
+function generateCookieDescriptor() {
+    var chip = Math.floor(Math.random()*(Math.pow(2,32) -1 ));
+    var seed = getRandomID();
+    var descriptor = new CookieDescriptor(chip, seed);
+    return descriptor;
 }
 
-function getProfiles() {
-    var _profiles = [];
-    for( id in profiles ) {
-	_profiles.push(profiles[id]);
-    }
-    return _profiles;
+function storeProfile(profile, descriptor) {
+    var _profile = {id:profile.id, name:profile.name, settings:profile.content, cookie_descriptor:descriptor}
+    profiles[_profile.id] = _profile;
 }
 
-function setProfile(id) {
+function activateProfile(id) {
     console.log("setting active profile with id ", id);
     active_profile = id;
     if (active == false) {
@@ -43,11 +33,33 @@ function setProfile(id) {
     }
 }
 
+/**
+ * Translate dictionary to list in order to fit Angularjs ng-repeat.
+ */
+function getProfiles() {
+    var _profiles = [];
+    for( id in profiles ) {
+	_profiles.push(profiles[id]);
+    }
+    return _profiles;
+}
+
 function stop() {
     active_profile = -1;
     stopCookieAdder();
     unsetProxy();
     active = false;    
+}
+
+/**
+ * Stop adding cookies but keep the proxy enabled
+ * to check the baseline performance.
+ */
+function activateProxyBaseline() {
+    active_profile = -1;
+    stopCookieAdder();
+    active = false;
+    setProxy();
 }
 
 function addCookie(details) {
