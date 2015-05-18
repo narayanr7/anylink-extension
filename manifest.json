@@ -1,6 +1,6 @@
 {
 	"name": "AES",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"manifest_version": 2,
 
 	"description": "AES (Access Emulation Service) lets you emulate your network experience through a set of different profiles.",
