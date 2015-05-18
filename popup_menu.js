@@ -4,13 +4,13 @@ aesApp.controller('AESController', ['$scope', '$http', function($scope, $http) {
 	    $scope.profiles = chrome.extension.getBackgroundPage().getProfiles();
 	    
 	    $scope.updateProfiles = function() {
+		chrome.extension.getBackgroundPage().deleteProfiles();
+		$scope.profiles = chrome.extension.getBackgroundPage().getProfiles();
 		$http.get('http://cookie.stanford.edu:8000/api/v1/profiles/').
 		success(function(data, status, headers, config) {
 			for (var i = 0; i < data.length; i++) {
 			    $scope.storeProfile(data[i]);
 			}
-			$scope.profiles = chrome.extension.getBackgroundPage().getProfiles();
-			console.log($scope.profiles);
 		    }).
 		error(function(data, status, headers, config) {
 			console.log(status);

@@ -44,6 +44,10 @@ function getProfiles() {
     return _profiles;
 }
 
+function deleteProfiles() {
+    profiles = {};
+}
+
 function stop() {
     active_profile = -1;
     stopCookieAdder();
