@@ -53,19 +53,19 @@ hr {
   padding-bottom: 10px;
 }
 
-.active-boost-header {
+.active-aes-header {
   height: 56px;
   width: 100%;
 }
 
-.boost-favicon {
+.aes-favicon {
   padding-left: 11px;
   height: 20px;
   width: 10%;
   float: left;
 }
 
-.boost-preference-header {
+.aes-preference-header {
   width: 70%;
   text-align: left;
   float: left;
@@ -73,7 +73,7 @@ hr {
   padding-bottom: 1px;
 }
 
-.boost-domain-header {
+.aes-domain-header {
   width: 70%;
   text-align: left;
   float: left;
@@ -81,32 +81,32 @@ hr {
   padding-bottom: 1px;
 }
 
-.boost-menuitem-always-header {
+.aes-menuitem-always-header {
   text-align: left;
   float: left;
 }
 
-.boost-menuitem-domain-header {
+.aes-menuitem-domain-header {
   text-align: right;
   padding-right: 11px;
   font-size: 12px;
   color: #757575;
 }
 
-.boost-checkmark {
+.aes-checkmark {
   height:20px;
   width: 10%;
   float: left;
 }
 
-.boost-info-header {
+.aes-info-header {
   width:70%;
   font-size: 12px;
   color: #757575;
   padding-left: 45px;
 }
 
-.boost-close-header {
+.aes-close-header {
   width: 324px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -116,7 +116,7 @@ hr {
   text-align: right;
 }
 
-.boost-close-header:hover, .checkable-option:hover {
+.aes-close-header:hover, .checkable-option:hover {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -150,7 +150,7 @@ hr {
 }
 
 /* SELECT DEVICE: Selectable device in the container */
-.goog-menuitem {
+.aes-menuitem {
   cursor: pointer;
   padding-left: 11px; /* 1px from extension popup */
   line-height: 32px;
@@ -159,7 +159,7 @@ hr {
   padding-bottom: 0px;
 }
 
-.goog-menuitem-secondary {
+.aes-menuitem-secondary {
   cursor: pointer;
   padding-left: 11px; /* 1px from extension popup */
   line-height: 32px;
@@ -169,7 +169,7 @@ hr {
   font-size: 12px;
 }
 
-.goog-menuitem .close {
+.aes-menuitem .close {
   position: absolute;
   right: 11px;
   top: 8px;
@@ -183,28 +183,11 @@ hr {
   vertical-align: middle;
 }
 
-.goog-menuitem:hover .close, .goog-menuitem:focus .close {
+.aes-menuitem:hover .close, .aes-menuitem:focus .close {
   display: inline-block;
 }
 
-.goog-menuitem .close:hover, .goog-menuitem .close:focus  {
-  display: inline-block;
-  background-image: -webkit-image-set(
-    url('icon-off.png') 1x,
-    url('icon-off.png') 2x);
-}
-
-/* SELECT DEVICE: Hover state for the selectable device */
-.goog-menuitem:hover, .checkable-option:hover {
-  background-color: #bbceec;
-  border: 0;
-}
-
-.goog-menuitem-secondary:hover .close, .goog-menuitem:focus .close {
-  display: inline-block;
-}
-
-.goog-menuitem-secondary .close:hover, .goog-menuitem .close:focus {
+.aes-menuitem .close:hover, .aes-menuitem .close:focus  {
   display: inline-block;
   background-image: -webkit-image-set(
     url('icon-off.png') 1x,
@@ -212,13 +195,30 @@ hr {
 }
 
 /* SELECT DEVICE: Hover state for the selectable device */
-.goog-menuitem-secondary:hover, .checkable-option:hover {
+.aes-menuitem:hover, .checkable-option:hover {
+  background-color: #bbceec;
+  border: 0;
+}
+
+.aes-menuitem-secondary:hover .close, .aes-menuitem:focus .close {
+  display: inline-block;
+}
+
+.aes-menuitem-secondary .close:hover, .aes-menuitem .close:focus {
+  display: inline-block;
+  background-image: -webkit-image-set(
+    url('icon-off.png') 1x,
+    url('icon-off.png') 2x);
+}
+
+/* SELECT DEVICE: Hover state for the selectable device */
+.aes-menuitem-secondary:hover, .checkable-option:hover {
   background-color: #bbceec;
   border: 0;
 }
 
 
-.goog-menuseparator {
+.aes-menuseparator {
   margin-top: 4px;
   margin-bottom: 4px;
   border-top: 1px solid #ebebeb;

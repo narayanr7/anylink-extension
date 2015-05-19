@@ -50,7 +50,12 @@ aesApp.controller('AESController', ['$scope', '$http', function($scope, $http) {
 	    }
 
 	    $scope.createProfile = function() {
-		chrome.tabs.create({url:'http://cookie.stanford.edu:8000/atc_demo_ui/'});
+		chrome.tabs.create({url:'http://cookie.stanford.edu:8000/atc_demo_ui/create_profile/'});
+		window.close();
+	    }
+
+	    $scope.showProfiles = function() {
+		chrome.tabs.create({url:'http://cookie.stanford.edu:8000/atc_demo_ui/profiles/'});
 		window.close();
 	    }
 

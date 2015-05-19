@@ -26,8 +26,8 @@
       </div>
 
       <div style="-webkit-user-select: none;">
-	<div ng-repeat="profile in profiles" class="goog-menuitem" ng-click="activateProfile(profile.id)">
-	  <div class="goog-menuitem-content">
+	<div ng-repeat="profile in profiles" class="aes-menuitem" ng-click="activateProfile(profile.id)">
+	  <div class="aes-menuitem-content">
 	    <angular-message desc="Profile name">
 	      {{profile.name}}
 	    </angular-message>
@@ -35,11 +35,11 @@
 	</div>
       </div>
 
-      <div class="goog-menuseparator" role="separator"></div>
+      <div class="aes-menuseparator" role="separator"></div>
 
-      <div class="goog-menuitem-secondary" role="menuitem" ng-click="updateProfiles()">
-	<div class="goog-menuitem-content">
-	  <div class="boost-menuitem-header">
+      <div class="aes-menuitem-secondary" role="menuitem" ng-click="updateProfiles()">
+	<div class="aes-menuitem-content">
+	  <div class="aes-menuitem-header">
             <angular-message desc="update profiles">
               Update network profiles
             </angular-message>
@@ -47,9 +47,9 @@
 	</div>
       </div>
 
-      <div class="goog-menuitem-secondary" role="menuitem" ng-click="createProfile()">
-	<div class="goog-menuitem-content">
-	  <div class="boost-menuitem-header">
+      <div class="aes-menuitem-secondary" role="menuitem" ng-click="createProfile()">
+	<div class="aes-menuitem-content">
+	  <div class="aes-menuitem-header">
             <angular-message desc="create a new profile">
 	      Create your own profile
             </angular-message>
@@ -57,9 +57,19 @@
 	</div>
       </div>
 
-      <div class="goog-menuitem-secondary" role="menuitem" ng-click="stop()">
-	<div class="goog-menuitem-content">
-	  <div class="boost-menuitem-header">
+      <div class="aes-menuitem-secondary" role="menuitem" ng-click="showProfiles()">
+	<div class="aes-menuitem-content">
+	  <div class="aes-menuitem-header">
+            <angular-message desc="create a new profile">
+	      Show profiles
+            </angular-message>
+	  </div>
+	</div>
+      </div>
+
+      <div class="aes-menuitem-secondary" role="menuitem" ng-click="stop()">
+	<div class="aes-menuitem-content">
+	  <div class="aes-menuitem-header">
             <angular-message desc="stop AES">
 	      Stop AES
             </angular-message>
@@ -67,9 +77,9 @@
 	</div>
       </div>
 
-      <div class="goog-menuitem-secondary" role="menuitem" ng-click="setProxyBaseline()">
-	<div class="goog-menuitem-content">
-	  <div class="boost-menuitem-header">
+      <div class="aes-menuitem-secondary" role="menuitem" ng-click="setProxyBaseline()">
+	<div class="aes-menuitem-content">
+	  <div class="aes-menuitem-header">
             <angular-message desc="Proxy Baseline">
 	      Proxy Baseline
             </angular-message>
