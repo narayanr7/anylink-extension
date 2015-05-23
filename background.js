@@ -93,6 +93,11 @@ function setProxy() {
 		scheme: "http",
 		host: "cookie.stanford.edu",
 		port: 8080
+	    },
+	    proxyForHttps: {
+		scheme: "http",
+		host: "cookie.stanford.edu",
+		port: 8080
 	    }
 	}
     };
