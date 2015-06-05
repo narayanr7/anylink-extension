@@ -159,6 +159,17 @@ hr {
   padding-bottom: 0px;
 }
 
+.aes-menuitem-selected {
+  cursor: pointer;
+  padding-left: 11px; /* 1px from extension popup */
+  line-height: 32px;
+  vertical-align: middle;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #33AD33;
+}
+
+
 .aes-menuitem-secondary {
   cursor: pointer;
   padding-left: 11px; /* 1px from extension popup */

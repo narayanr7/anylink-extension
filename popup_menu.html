@@ -27,7 +27,7 @@
 
       <div style="-webkit-user-select: none;">
 	<div ng-repeat="profile in profiles" class="aes-menuitem" ng-click="activateProfile(profile.id)">
-	  <div class="aes-menuitem-content">
+	  <div ng-class="{'aes-menuitem-selected': profile.id == active_profile}">
 	    <angular-message desc="Profile name">
 	      {{profile.name}}
 	    </angular-message>

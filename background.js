@@ -1,4 +1,11 @@
-var proxy_url='http://cookie.stanford.edu:8080'
+// Google Cloud Public Server : 146.148.60.119
+// Stanford Public Server : cookie.stanford.edu
+
+var proxy_server='146.148.60.119';
+var proxy_port=8080;
+var proxy_url= 'http://' + proxy_server + ':' + proxy_port;
+var frontend_server='146.148.60.119:8000';
+
 
 var profiles = {};
 var active_profile = -1;
@@ -91,14 +98,14 @@ function setProxy() {
 	rules: {
 	    proxyForHttp: {
 		scheme: "http",
-		host: "cookie.stanford.edu",
-		port: 8080
+		host: proxy_server,
+		port: proxy_port
 	    },
-	    proxyForHttps: {
-		scheme: "http",
-		host: "cookie.stanford.edu",
-		port: 8080
-	    }
+// 	    proxyForHttps: {
+// 		scheme: "http",
+// 		host: proxy_server,
+// 		port: proxy_port
+// 	    }
 	}
     };
     chrome.proxy.settings.set({value: config, scope: 'regular'}, function() {});
