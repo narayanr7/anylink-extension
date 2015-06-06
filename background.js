@@ -6,6 +6,9 @@ var proxy_port=8080;
 var proxy_url= 'http://' + proxy_server + ':' + proxy_port;
 var frontend_server='146.148.60.119:8000';
 
+// Keep a default descriptor, not associated with a profile.
+var default_descriptor = generateCookieDescriptor();
+
 
 var profiles = {};
 var active_profile = -1;
@@ -69,15 +72,21 @@ function stop() {
  * to check the baseline performance.
  */
 function activateProxyBaseline() {
+    if (active == false) {
+	active = true;
+	startCookieAdder();
+    }
     active_profile = -1;
-    stopCookieAdder();
-    active = false;
     setProxy();
 }
 
 function addCookie(details) {
     var headers = details.requestHeaders;
-    cookie = profiles[active_profile].cookie_descriptor.generateCookie().toString();
+    if (active_profile != -1) {
+	cookie = profiles[active_profile].cookie_descriptor.generateCookie().toString();
+    } else {
+	cookie = default_descriptor.generateCookie().toString();
+    }
     headers.push({name:'network-cookie', value:cookie});
     return { requestHeaders: headers };
 }
