@@ -110,11 +110,11 @@ function setProxy() {
 		host: proxy_server,
 		port: proxy_port
 	    },
-// 	    proxyForHttps: {
-// 		scheme: "http",
-// 		host: proxy_server,
-// 		port: proxy_port
-// 	    }
+ 	    proxyForHttps: {
+ 		scheme: "http",
+ 		host: proxy_server,
+ 		port: proxy_port
+ 	    }
 	}
     };
     chrome.proxy.settings.set({value: config, scope: 'regular'}, function() {});
