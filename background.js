@@ -7,7 +7,8 @@ var proxy_url= 'http://' + proxy_server + ':' + proxy_port;
 var frontend_server='146.148.60.119:8000';
 
 // Message for speedtest
-var speedtest_message = "Ookla's Speedtest doesn't work with AnyLink (it doesn't use HTTP).\n" +
+var speedtest_message = "AnyLink doesn't work with Ookla's Speedtest " + 
+    "(it doesn't use HTTP).\n" +
     "\nUse http://www.bandwidthplace.com instead!"
 
 // Keep a default descriptor, not associated with a profile.
@@ -133,15 +134,8 @@ function addCookie(details) {
     return { requestHeaders: headers };
 }
 
-function checkUrl(tab) {
-    console.log("checkUrl called");
-    if (tab && tab.url) {
-	var domain = getDomainFromUrl(tab.url);
-	console.log(domain);
-	if (domain == 'www.speedtest.net' || domain == 'speedtest.net') {
-	    showNotification(speedtest_message);
-	}
-    }
+function checkUrl(details) {
+    showNotification(speedtest_message);
 }
     
 
@@ -156,13 +150,12 @@ function stopCookieAdder() {
 }
 
 function startUrlChecker() {
-    chrome.tabs.onUpdated.addListener(function(taId, changeInfo, tab) { checkUrl(tab) });
-    chrome.tabs.onCreated.addListener(checkUrl);
+    chrome.webNavigation.onDOMContentLoaded.addListener(checkUrl, 
+							{url: [{hostContains:'speedtest'}]});
 }
 
 function stopUrlChecker() {
-    chrome.tabs.onUpdated.removeListener(checkUrl);
-    chrome.tabs.onCreated.removeListener(checkUrl);
+    chrome.webNavigation.onDOMContentLoaded.removeListener(checkUrl);
 }
 
 function setProxy() {

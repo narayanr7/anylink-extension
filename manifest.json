@@ -1,6 +1,6 @@
 {
 	"name": "AnyLink",
-	"version": "0.0.11",
+	"version": "0.0.12",
 	"manifest_version": 2,
 
 	"description": "AnyLink lets you emulate your network experience through a set of different profiles.",
@@ -13,7 +13,7 @@
 	  "proxy",
 	  "webRequest", 
 	  "webRequestBlocking",
-	  "tabs",
+	  "webNavigation",
 	  "notifications", 
 	  "alarms"
 	],
