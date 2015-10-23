@@ -2,9 +2,13 @@
 // Stanford Public Server : cookie.stanford.edu
 
 var proxy_server='146.148.60.119';
-var proxy_port=8080;
+var proxy_port=9037;
 var proxy_url= 'http://' + proxy_server + ':' + proxy_port;
 var frontend_server='146.148.60.119:8000';
+
+// Message for speedtest
+var speedtest_message = "Ookla's Speedtest doesn't work with AnyLink (it doesn't use HTTP).\n" +
+    "\nUse http://www.bandwidthplace.com instead!"
 
 // Keep a default descriptor, not associated with a profile.
 var default_descriptor = generateCookieDescriptor();
@@ -13,6 +17,40 @@ var default_descriptor = generateCookieDescriptor();
 var profiles = {};
 var active_profile = -1;
 var active = false;
+
+// Used for parsing a url.
+var parser = document.createElement('a');
+
+/**
+ * Gets domain from url.
+ */
+function getDomainFromUrl(url) {
+    parser.href = url;
+    return parser.hostname;
+}
+
+/**
+ * show a notification
+ */
+function showNotification(message, autoremove) {
+    if (autoremove === undefined) {
+	autoremove = true;
+    }
+    chrome.notifications.create('anylink_notification',
+				{type: 'basic', title: 'AnyLink',
+					message: message,
+					iconUrl:'img/puzzle.png'},
+				function() {});
+    if (autoremove == true) {
+	chrome.alarms.create('notify',
+			     {when: Date.now() + 10000});
+	chrome.alarms.onAlarm.addListener(function(alarm) {
+		if (alarm.name == 'notify') {
+		    chrome.notifications.clear('anylink_notification', function() {});
+		}
+	    });
+    }
+}
 
 /**
  * Returns a random alphanumeric string.
@@ -39,9 +77,11 @@ function activateProfile(id) {
     if (active == true) {
 	unsetProxy();
 	stopCookieAdder();
+	stopUrlChecker();
     }
     setProxy();
     startCookieAdder();
+    startUrlChecker();
     active = true;
 }
 
@@ -63,6 +103,7 @@ function deleteProfiles() {
 function stop() {
     active_profile = -1;
     stopCookieAdder();
+    stopUrlChecker();
     unsetProxy();
     active = false;    
 }
@@ -75,6 +116,7 @@ function activateProxyBaseline() {
     if (active == false) {
 	active = true;
 	startCookieAdder();
+	startUrlChecker();
     }
     active_profile = -1;
     setProxy();
@@ -91,6 +133,18 @@ function addCookie(details) {
     return { requestHeaders: headers };
 }
 
+function checkUrl(tab) {
+    console.log("checkUrl called");
+    if (tab && tab.url) {
+	var domain = getDomainFromUrl(tab.url);
+	console.log(domain);
+	if (domain == 'www.speedtest.net' || domain == 'speedtest.net') {
+	    showNotification(speedtest_message);
+	}
+    }
+}
+    
+
 function startCookieAdder() {
     chrome.webRequest.onBeforeSendHeaders.addListener(addCookie, 
 						      {urls:["<all_urls>"]},
@@ -99,6 +153,16 @@ function startCookieAdder() {
 
 function stopCookieAdder() {
     chrome.webRequest.onBeforeSendHeaders.removeListener(addCookie);
+}
+
+function startUrlChecker() {
+    chrome.tabs.onUpdated.addListener(function(taId, changeInfo, tab) { checkUrl(tab) });
+    chrome.tabs.onCreated.addListener(checkUrl);
+}
+
+function stopUrlChecker() {
+    chrome.tabs.onUpdated.removeListener(checkUrl);
+    chrome.tabs.onCreated.removeListener(checkUrl);
 }
 
 function setProxy() {
@@ -110,11 +174,6 @@ function setProxy() {
 		host: proxy_server,
 		port: proxy_port
 	    },
-//  	    proxyForHttps: {
-//  		scheme: "http",
-//  		host: proxy_server,
-//  		port: proxy_port
-//  	    }
 	}
     };
     chrome.proxy.settings.set({value: config, scope: 'regular'}, function() {});

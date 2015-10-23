@@ -45,7 +45,6 @@ function Cookie(chip, seed) {
     }
     this.toString = function() {
 	var str = this.chip + "," + this.timestamp + "," + this.uuid + "," + this.sig;
-	console.log(str);
 	str = btoa(str);
 	return str;
     }
