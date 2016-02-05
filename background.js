@@ -40,7 +40,7 @@ function showNotification(message, autoremove) {
     chrome.notifications.create('anylink_notification',
 				{type: 'basic', title: 'AnyLink',
 					message: message,
-					iconUrl:'img/puzzle.png'},
+					iconUrl:'img/anylink-icon.png'},
 				function() {});
     if (autoremove == true) {
 	chrome.alarms.create('notify',
