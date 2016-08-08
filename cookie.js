@@ -25,12 +25,26 @@ function CookieDescriptor(chip, seed) {
 function Cookie(chip, seed) {
     this.chip = chip;
     this.seed = seed;
-    this.timestamp = Math.floor(Date.now() / 1000);
-    this.uuid = Math.uuid();
 
-    var str = this.chip + "," + this.timestamp + "," + this.uuid;
+    // Create a cookie
+    do {
+	// Timestamp
+	this.timestamp = Math.floor(Date.now() / 1000);
+
+	// UUID
+	this.uuid = Math.uuid();
+
+	var str = this.chip + "\r\n" + this.timestamp + "\r\n" + this.uuid;
     
-    this.sig = asmCrypto.HMAC_SHA1.hex(this.seed, str);
+	// Signature
+	this.sig = asmCrypto.HMAC_SHA1.hex(this.seed, str);
+
+	// Concatenate value using \r\n as delimiter. 
+	this.cookie_raw_value = this.chip + "\r\n" + this.timestamp + "\r\n" + this.uuid + "\r\n" + this.sig;
+    }
+    // Check that only 3 delimiters are present.
+    // Otherwise (e.g., in the rare case there is one in the signature create a new one).
+    while (this.cookie_raw_value.match(/\r\n/g).length != 3);
     
     this.toBytes = function() {
 	
@@ -43,9 +57,8 @@ function Cookie(chip, seed) {
 	data = new Uint8Array(_data);
 	return data;
     }
+
     this.toString = function() {
-	var str = this.chip + "," + this.timestamp + "," + this.uuid + "," + this.sig;
-	str = btoa(str);
-	return str;
+	return btoa(this.cookie_raw_value);
     }
 }
