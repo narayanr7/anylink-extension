@@ -37,7 +37,7 @@ function Cookie(chip, seed) {
 	var str = this.chip + "\r\n" + this.timestamp + "\r\n" + this.uuid;
     
 	// Signature
-	this.sig = asmCrypto.HMAC_SHA1.hex(this.seed, str);
+	this.sig = asmCrypto.HMAC_SHA1.hex(str, this.seed);
 
 	// Concatenate value using \r\n as delimiter. 
 	this.cookie_raw_value = this.chip + "\r\n" + this.timestamp + "\r\n" + this.uuid + "\r\n" + this.sig;
